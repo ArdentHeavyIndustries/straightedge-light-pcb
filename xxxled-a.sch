@@ -6323,6 +6323,15 @@ grid 2.54 mm</description>
 <rectangle x1="2.159" y1="-6.604" x2="2.921" y2="-4.699" layer="51"/>
 <hole x="0" y="11.176" drill="3.302"/>
 </package>
+<package name="POWER_LED_EDGE">
+<wire x1="-5.715" y1="0" x2="5.715" y2="0" width="0.127" layer="21"/>
+<wire x1="5.715" y1="0" x2="5.715" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="0" x2="-5.715" y2="-3.81" width="0.127" layer="21"/>
+<smd name="P$A" x="-7.62" y="-1.905" dx="3.81" dy="3.81" layer="1"/>
+<smd name="P$C" x="7.62" y="-1.905" dx="3.81" dy="3.81" layer="1"/>
+<text x="-5.08" y="1.27" size="1.27" layer="21" font="fixed" align="center-left">+</text>
+<text x="5.08" y="1.27" size="1.27" layer="21" font="fixed" align="center-right">-</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -6383,6 +6392,15 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="EDGE" package="POWER_LED_EDGE">
+<connects>
+<connect gate="G$1" pin="A" pad="P$A"/>
+<connect gate="G$1" pin="C" pad="P$C"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -6826,7 +6844,7 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <part name="Q1" library="xxxled" deviceset="TIP120" device=""/>
 <part name="R1" library="resistor-power" deviceset="R" device="AC01" value="4 ohm, 1W"/>
 <part name="J1" library="con-lstb" deviceset="MA03-1" device=""/>
-<part name="LED1" library="xxxled" deviceset="W49180" device="" value="1W Epistar"/>
+<part name="LED1" library="xxxled" deviceset="W49180" device="EDGE" value="1W Epistar"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0207/12" value="470"/>
 <part name="J2" library="wirepad" deviceset="WIREPAD" device="2,54/1,1" value="BAT+"/>
 <part name="J3" library="wirepad" deviceset="WIREPAD" device="2,54/1,1" value="LED-"/>
@@ -6838,9 +6856,9 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <plain>
 <text x="152.4" y="27.94" size="2.54" layer="97">Straightedge LED Board</text>
 <text x="238.76" y="7.62" size="2.54" layer="97">A</text>
-<text x="99.06" y="81.28" size="1.778" layer="91">Vbat</text>
-<text x="99.06" y="76.2" size="1.778" layer="91">GND</text>
-<text x="99.06" y="78.74" size="1.778" layer="91">Enable</text>
+<text x="99.06" y="68.58" size="1.778" layer="91">Vbat</text>
+<text x="99.06" y="66.04" size="1.778" layer="91">GND</text>
+<text x="99.06" y="71.12" size="1.778" layer="91">Enable</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -6850,7 +6868,7 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <attribute name="NAME" x="130.81" y="118.0084" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="130.81" y="114.681" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="J1" gate="G$1" x="91.44" y="78.74"/>
+<instance part="J1" gate="G$1" x="88.9" y="68.58"/>
 <instance part="LED1" gate="G$1" x="134.62" y="104.14" smashed="yes">
 <attribute name="NAME" x="129.032" y="105.156" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="129.032" y="102.235" size="1.778" layer="96" rot="R180"/>
@@ -6864,13 +6882,6 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="2"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="78.74" x2="116.84" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
@@ -6905,23 +6916,30 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <wire x1="134.62" y1="127" x2="139.7" y2="127" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="119.38" x2="134.62" y2="127" width="0.1524" layer="91"/>
 <junction x="134.62" y="127"/>
-<pinref part="J1" gate="G$1" pin="3"/>
-<wire x1="99.06" y1="81.28" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="81.28" x2="109.22" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="137.16" x2="134.62" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="137.16" x2="134.62" y2="127" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="P"/>
 <pinref part="J4" gate="G$1" pin="P"/>
+<wire x1="109.22" y1="137.16" x2="109.22" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="68.58" x2="96.52" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="Q1" gate="1" pin="E"/>
 <wire x1="134.62" y1="73.66" x2="134.62" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="66.04" x2="109.22" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="66.04" x2="109.22" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="76.2" x2="99.06" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="96.52" y1="71.12" x2="111.76" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="71.12" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="78.74" x2="116.84" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
