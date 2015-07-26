@@ -3833,7 +3833,7 @@ Source: http://www.acriche.com .. W49180.pdf</description>
 <parts>
 <part name="FRAME1" library="frames" deviceset="LETTER_L" device=""/>
 <part name="Q1" library="xxxled" deviceset="TIP120" device=""/>
-<part name="R1" library="resistor" deviceset="R-US_" device="0309/12" value="4.7 1/2W"/>
+<part name="R1" library="resistor" deviceset="R-US_" device="0309/12" value="2.7 1/2W"/>
 <part name="J1" library="con-lstb" deviceset="MA03-1" device=""/>
 <part name="LED1" library="xxxled" deviceset="W49180" device="EDGE" value="1W Epistar"/>
 <part name="R2" library="resistor" deviceset="R-US_" device="0207/10" value="470 1/4W"/>
